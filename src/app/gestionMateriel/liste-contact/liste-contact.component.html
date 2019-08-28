@@ -1,1 +1,7 @@
 <p>liste-contact works!</p>
+<div *ngFor='let contact of contacts' >
+    <p>{{ contact.personne.nom }} {{ contact.personne.prenom }}</p>
+    <p>{{ contact.fonction.libelle}}</p>
+    <p>{{ contact.personne.telephone }}</p>
+    <p>{{ contact.personne.email }}</p>
+</div>

@@ -10,4 +10,4 @@ export class TypeMateriel {
             json['libelle']
         );
     }
-    }
+}
