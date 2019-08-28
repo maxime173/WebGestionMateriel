@@ -1,3 +1,6 @@
+import { Ville } from './ville';
+import { Contact } from './contact';
+import { Materiel } from './materiel';
 
 export class Client {
     public constructor (
@@ -5,7 +8,9 @@ export class Client {
         public nom: string, 
         public adrresse1: string, 
         public adresse2: string, 
-        public idcpville : number) {}
+        public ville : Ville,
+        public contact: Array<Contact>,
+        public materiel: Array<Materiel>) {}
 
     public static fromJson(json: Object): 
     Client {
@@ -14,7 +19,9 @@ export class Client {
             json['nom'],
             json['adresse1'],
             json['adresse2'],
-            json['idcpville']
+            json['ville'],
+            json['contacts'],
+            json['materiels']
         );
     }
     }
