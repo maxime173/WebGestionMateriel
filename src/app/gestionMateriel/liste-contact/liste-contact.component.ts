@@ -29,7 +29,9 @@ export class ListeContactComponent implements OnInit {
   }
 
   deleteContact(idContact:number) {
-    this.contactService.deleteContactById(this.idClient, idContact);
+    this.contactService.deleteContactById(this.idClient, idContact).subscribe((response) => {
+      console.log("deleted")
+    });
   }
 
 }
