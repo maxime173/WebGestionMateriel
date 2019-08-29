@@ -23,4 +23,8 @@ export class ListeContactComponent implements OnInit {
     this.contactService.getAllContacts().subscribe(data => this.contacts = data);
   }
 
+  getContactsFromClients(idClient:number) {
+
+  }
+
 }

@@ -29,5 +29,13 @@ export class ContactService {
       )
     );
   }
+
+  getContactsFromClient(idClient:number): Observable<Contact[]> {
+    return this.http.get<Contact[]>(this.baseUrl + '/clients/' + idClient + '/contacts', this.httpOptions).pipe();
+  }
+
+  getContactsByIdFromClient(idClient:number, id:number): Observable<Contact[]> {
+    return this.http.get<Contact[]>(this.baseUrl + '/clients/' + idClient + '/contacts/' + id, this.httpOptions).pipe();
+  }
   
 }

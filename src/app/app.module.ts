@@ -10,6 +10,7 @@ import { ListeMaterielComponent } from './gestionMateriel/liste-materiel/liste-m
 import { ListeInterfaceComponent } from './gestionMateriel/liste-interface/liste-interface.component';
 import { DetailMaterielComponent } from './gestionMateriel/detail-materiel/detail-materiel.component';
 import { DetailClientComponent } from './gestionMateriel/detail-client/detail-client.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,17 @@ import { DetailClientComponent } from './gestionMateriel/detail-client/detail-cl
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    HttpClientModule
+    RouterModule.forRoot([
+      { path: 'clients', component: ListeContactComponent },
+      { path: 'materiels', component: ListeMaterielComponent },
+      { path: 'interfaces', component: ListeInterfaceComponent },
+      { path: 'clients/:id', component: DetailClientComponent },
+      { path: 'materiels/:id', component: DetailMaterielComponent },
+      //Pour le développement uniquement, à supprimer après :
+      { path: 'contacts', component: ListeContactComponent },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
