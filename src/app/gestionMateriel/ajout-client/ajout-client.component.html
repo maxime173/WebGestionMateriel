@@ -26,7 +26,7 @@
                     </select>
                 </div>
                 <div class="form-groupV" *ngIf="ville == 'autre'">
-                 <input type="text" name="codePostal" placeholder="veuillez renseigner un code postal" />
+                 <input type="text" formControlName="codePostal" name="codePostal" placeholder="veuillez renseigner un code postal" />
                  <input type="text" name="nom"  placeholder="veuillez renseigner une ville" />
                 </div>
             

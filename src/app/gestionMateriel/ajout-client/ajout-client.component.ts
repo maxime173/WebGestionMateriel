@@ -25,6 +25,8 @@ export class AjoutClientComponent implements OnInit {
       adresse1 : [''],
       adresse2: [''],
       ville: [''],
+      codePostal : [''],
+      
   }, {
 
   });
@@ -37,6 +39,8 @@ export class AjoutClientComponent implements OnInit {
       // stop here if form is invalid
       if (this.ajoutForm.invalid) {
           return;
+
+        
       }
 
       console.log(this.ajoutForm.get("nom"));
