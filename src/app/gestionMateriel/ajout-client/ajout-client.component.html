@@ -7,8 +7,7 @@
                 <div class="form-group col-5">
                     <label>nom</label>
                     <input type="text" formControlName="nom" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }" />
-                        <div *ngIf="submitted && f.nom.errors"> class="invalid-feedback" </div>
-                        <div *ngIf="f.nom.errors.required"> Le nom de la société est requis </div>
+                        <div *ngIf="submitted && f.nom.errors">  Le nom de la société est requis </div>
                 </div>
                
                 <div class="form-group col-5">
@@ -19,10 +18,18 @@
                     <label>Adresse 2</label>
                     <input type="text" formControlName="adresse2" class="form-control" />
                 </div>
-                <div class="form-group col-5">
-                    <label>Ville</label>
-                    <input type="text" formControlName="ville" class="form-control" />
+                <div class="form-groupV">
+                <select formControlName="ville" [(ngModel)]="ville"name="ville" >
+                    <option value=""> </option>
+                    <option *ngFor="let ville of villes" value="{{ ville.id }}">{{ ville.nom }}</option>
+                    <option value="autre">Nouvelle Ville</option>
+                    </select>
                 </div>
+                <div class="form-groupV" *ngIf="ville == 'autre'">
+                 <input type="text" name="codePostal" placeholder="veuillez renseigner un code postal" />
+                 <input type="text" name="nom"  placeholder="veuillez renseigner une ville" />
+                </div>
+            
                 <div class="Ajouter">
                 <button class="btn btn-primary mr-1">Ajouter</button>
                 <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
@@ -32,3 +39,4 @@
         </form>
     </div>
 </div>
+
