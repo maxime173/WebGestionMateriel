@@ -1,26 +1,27 @@
-#blocks{
-    text-align: center;
-}
-
-
-
-img{
-    width: 140px;
-}
-
-#cadre{
- 
-    width:100%;
-    text-align: center;
-}
 #detailCl{  
-     height: 150px;
+    width:100%;
+}
+#cadre{
+    display: flex;
+    flex-wrap: nowrap;
+    height: 150px;
     background: rgb(255, 128, 8);
     text-align: center;
-    display: flex;
 }
 
-#detCon{
-    width: 300px;
+.enfant{
+  text-align: center;
+}
 
+img{
+    width:140px;
+}
+
+#blocks{
+width: 610px;
+margin: auto;
+}
+#listeC, #listeM {
+    display: inline;
+    width: 300px;
 }
