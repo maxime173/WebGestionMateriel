@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { Client } from './client';
+import { Materiel } from './materiel';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClientService {
+export class MaterielService {
   baseUrl = "https://api-gestion-materiel.herokuapp.com/api/v1";
   httpOptions = {
     headers : new HttpHeaders({
@@ -21,17 +20,7 @@ export class ClientService {
 
   constructor(private http: HttpClient) { }
 
-  // Retourne tous les contacts
-  getAllClients(): Observable<Client[]> {
-    return this.http.get<Client[]>(this.baseUrl+'/clients', this.httpOptions).pipe(
-      map(
-        (jsonArray: Object[]) => jsonArray.map(jsonItem => Client.fromJson(jsonItem))
-      )
-    );
+  getMaterielsFromClient(idClient:number): Observable<Materiel[]> {
+    return this.http.get<Materiel[]>(this.baseUrl + '/clients/' + idClient + '/materiels', this.httpOptions).pipe();
   }
-
-  getClientById(idClient: number): Observable<Client> {
-    return this.http.get<Client>(this.baseUrl + '/clients/' + idClient, this.httpOptions).pipe();
-  }
-  
 }
