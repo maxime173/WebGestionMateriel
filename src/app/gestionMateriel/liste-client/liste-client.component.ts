@@ -22,4 +22,8 @@ export class ListeClientComponent implements OnInit {
   getAllClients() {
     this.clientService.getAllClients().subscribe(data => this.clients = data);
   }
+
+  goToDetail(idClient: number) {
+    this.router.navigate(['/clients', idClient])
+  }
 }

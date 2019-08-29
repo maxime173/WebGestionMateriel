@@ -31,6 +31,7 @@ import { AjoutClientComponent } from './gestionMateriel/ajout-client/ajout-clien
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
+      { path: '', component: ListeClientComponent },
       { path: 'clients', component: ListeClientComponent },
       { path: 'materiels', component: ListeMaterielComponent },
       { path: 'interfaces', component: ListeInterfaceComponent },
