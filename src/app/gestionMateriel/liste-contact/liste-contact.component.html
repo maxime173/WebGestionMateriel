@@ -1,6 +1,8 @@
+<title>Liste de contact </title>
 <div *ngFor='let contact of contacts' >
-    <p>{{ contact.personne.nom }} {{ contact.personne.prenom }}</p>
-    <p>{{ contact.fonction.libelle}}</p>
-    <p>{{ contact.personne.telephone }}</p>
-    <p>{{ contact.personne.email }}</p>
+   <p> Nom :{{ contact.personne.nom }} 
+       Prénom : {{ contact.personne.prenom }}</p>
+    <p> Fonction : {{ contact.fonction.libelle}}</p>
+    <p> Téléphone : {{ contact.personne.telephone }}</p>
+    <p> E-mail : {{ contact.personne.email }}</p>
 </div>
