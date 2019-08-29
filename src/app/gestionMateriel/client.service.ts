@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { Client } from './Client';
+import { Client } from './client';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +28,10 @@ export class ClientService {
         (jsonArray: Object[]) => jsonArray.map(jsonItem => Client.fromJson(jsonItem))
       )
     );
+  }
+
+  getClientById(idClient: number): Observable<Client> {
+    return this.http.get<Client>(this.baseUrl + '/clients/' + idClient, this.httpOptions).pipe();
   }
   
 }

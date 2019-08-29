@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Contact } from '../contact';
 import { ContactService } from '../contact-service';
-import { Router, Params, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-liste-contact',
@@ -11,27 +11,25 @@ import { Router, Params, ActivatedRoute } from '@angular/router';
 })
 export class ListeContactComponent implements OnInit {
 
+  @Input() idClient:number;
   contacts : Contact[] = null;
 
-  constructor(private route: ActivatedRoute, private router: Router, private contactService: ContactService) { }
+  constructor(private router: Router, private contactService: ContactService) { }
 
   ngOnInit() {
-    this.route.params.forEach((params: Params) => {
-      let id = +params['id'];
-      this.getContactsFromClient(id); // on utilise le service pour récupérer un super héros en fonction de son identifiant.
-    });
+    this.getContactsFromClient();
   }
 
-  getContactsFromClient(idClient:number) {
-    this.contactService.getContactsFromClient(idClient).subscribe(data => this.contacts = data);
+  getContactsFromClient() {
+    this.contactService.getContactsFromClient(this.idClient).subscribe(data => this.contacts = data);
   }
 
-  editContact(idClient:number, contact:Contact) {
+  editContact(contact:Contact) {
 
   }
 
-  deleteContact(idClient:number, idContact:number) {
-    this.contactService.deleteContactById(idClient, idContact);
+  deleteContact(idContact:number) {
+    this.contactService.deleteContactById(this.idClient, idContact);
   }
 
 }
