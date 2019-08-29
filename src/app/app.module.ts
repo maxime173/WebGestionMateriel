@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListeClientComponent } from './gestionMateriel/liste-client/liste-client.component';
@@ -28,14 +28,18 @@ import { AjoutClientComponent } from './gestionMateriel/ajout-client/ajout-clien
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'clients', component: ListeClientComponent },
       { path: 'materiels', component: ListeMaterielComponent },
       { path: 'interfaces', component: ListeInterfaceComponent },
+      { path: 'clients/ajout', component: AjoutClientComponent },
       { path: 'clients/:id', component: DetailClientComponent },
       { path: 'materiels/:id', component: DetailMaterielComponent },
       //Pour le développement uniquement, à supprimer après :
       { path: 'contacts/:id', component: ListeContactComponent },
+      
     ])
   ],
   providers: [],
