@@ -27,13 +27,13 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot([
-      { path: 'clients', component: ListeContactComponent },
+      { path: 'clients', component: ListeClientComponent },
       { path: 'materiels', component: ListeMaterielComponent },
       { path: 'interfaces', component: ListeInterfaceComponent },
       { path: 'clients/:id', component: DetailClientComponent },
       { path: 'materiels/:id', component: DetailMaterielComponent },
       //Pour le développement uniquement, à supprimer après :
-      { path: 'contacts', component: ListeContactComponent },
+      { path: 'contacts/:id', component: ListeContactComponent },
     ])
   ],
   providers: [],
