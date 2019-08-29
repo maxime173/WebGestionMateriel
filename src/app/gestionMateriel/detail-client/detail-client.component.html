@@ -1,11 +1,13 @@
 <div id="detailCl">
-    <img src=""><img><p>{{ client.nom }}</p>
-<p>{{ client.adresse1 }}</p>
+<span id="cadre">
+<span class="enfant"><img src="assets/images.jpg"/></span>
+<span class="enfant"><p>{{ client.nom }}</p>
+    <p>{{ client.adresse1 }}</p>
 <p>{{ client.adresse2 }}</p>
 <div *ngIf='client.ville != null'>
     <p>{{ client.ville.codePostal }}</p>
     <p>{{ client.ville.nom }}</p>
-</div></div>
+</div></span></span></div>
 <div id="blocks">
 <div id="detCon"><app-liste-contact [idClient]=client.id></app-liste-contact></div>
 <app-liste-materiel [idClient]=client.id></app-liste-materiel>
