@@ -22,6 +22,6 @@ width: 610px;
 margin: auto;
 }
 #listeC, #listeM {
-    display: inline;
+    display: inline-flex;
     width: 300px;
 }
