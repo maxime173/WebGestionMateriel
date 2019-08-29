@@ -38,8 +38,8 @@ export class ContactService {
     return this.http.get<Contact[]>(this.baseUrl + '/clients/' + idClient + '/contacts/' + id, this.httpOptions).pipe();
   }
 
-  deleteContactById(idClient:number, id:number) {
-    this.http.delete(this.baseUrl + '/clients/' + idClient + '/contacts/' + id, this.httpOptions).pipe();
-  }
+  deleteContactById(idClient:number, id:number): Observable<Contact> {
+    return this.http.delete<Contact>(this.baseUrl + '/clients/' + idClient + '/contacts/' + id, this.httpOptions).pipe();
+  } 
   
 }
