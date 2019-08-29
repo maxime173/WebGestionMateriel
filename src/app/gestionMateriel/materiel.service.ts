@@ -21,6 +21,6 @@ export class MaterielService {
   constructor(private http: HttpClient) { }
 
   getMaterielsFromClient(idClient:number): Observable<Materiel[]> {
-    return this.http.get<Materiel[]>(this.baseUrl + '/clients/' + idClient + '/materiel', this.httpOptions).pipe();
+    return this.http.get<Materiel[]>(this.baseUrl + '/clients/' + idClient + '/materiels', this.httpOptions).pipe();
   }
 }
