@@ -6,7 +6,7 @@ export class Client {
     public constructor (
         public id: number, 
         public nom: string, 
-        public adrresse1: string, 
+        public adresse1: string, 
         public adresse2: string, 
         public ville : Ville,
         public contact: Array<Contact>,

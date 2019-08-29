@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Client } from '../Client';
+import { Router } from '@angular/router';
+import { ClientService } from '../client.service';
 
 @Component({
   selector: 'app-liste-client',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListeClientComponent implements OnInit {
 
-  constructor() { }
+  clients : Client[] = null;
+
+  constructor(private router: Router, private clientService: ClientService) { }
+  
 
   ngOnInit() {
+    this.getAllClients();
   }
 
+  getAllClients() {
+    this.clientService.getAllClients().subscribe(data => this.clients = data);
+  }
 }

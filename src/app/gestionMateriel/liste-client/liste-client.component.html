@@ -1,1 +1,8 @@
 <p>liste-client works!</p>
+<div *ngFor='let client of clients' >
+    
+        <p> {{client.nom}}</p>
+        <p>{{client.adresse1}}  {{client.adresse2}}</p>
+        <p>{{client.ville.nom}}</p>
+    
+</div>
