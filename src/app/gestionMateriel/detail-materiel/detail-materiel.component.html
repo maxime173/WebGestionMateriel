@@ -1,4 +1,21 @@
-        <p>{{ materiel.libelle }}</p>
-        <p>{{ materiel.numSerie }}</p>
-        <p>{{ materiel.typeMateriel.libelle }}</p>
-        <app-liste-interface [idMateriel]=materiel.id></app-liste-interface>
+       <div class="modal-header">
+              <h4 class="modal-title">Détail materiel</h4>
+       <div><i class="fab fa-map-marker-minus    "></i>
+       <i class="fab fa-map-marker-minus    ">Menu<</i></div>
+
+       </div>
+       <div class="modal-body">
+                <p><span>Nom materiel : </span>{{ materiel.libelle }}</p>
+                <p><span>N° Serie : </span>{{ materiel.numSerie }}</p>
+                <p><span>Type Materiel : </span>{{ materiel.typeMateriel.libelle }}</p>
+       </div>
+        <div class="modal-body">
+     <app-liste-interface [idMateriel]=materiel.id></app-liste-interface>
+       </div>
+       <div class="modal-footer">
+               <button type="button" class="btn btn-info" ng-click="click()">
+                       Press Me Hard
+               </button>
+       </div>
+
+
