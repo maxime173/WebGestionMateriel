@@ -1,15 +1,15 @@
 <div id="detailCl">
-<span id="cadre">
-<span class="enfant"><img src="assets/images.jpg"/></span>
-<span class="enfant"><p>{{ client.nom }}</p>
-    <p>{{ client.adresse1 }}</p>
-<p>{{ client.adresse2 }}</p>
-<div *ngIf='client.ville != null'>
-    <p>{{ client.ville.codePostal }}</p>
-    <p>{{ client.ville.nom }}</p>
-</div></span></span></div>
+    <div id="cadre">
+        <div class="enfant"><p>{{ client.nom }}</p>
+        <p>{{ client.adresse1 }}</p>
+        <p>{{ client.adresse2 }}</p>
+         <span *ngIf='client.ville != null'>
+            <p>{{ client.ville.codePostal }}</p>
+            <p>{{ client.ville.nom }}</p>
+         </span>
+        </div>
+    </div>
 <div id="blocks">
-        <app-liste-materiel [idClient]=client.id></app-liste-materiel>
-<div id="detCon"><app-liste-contact [idClient]=client.id></app-liste-contact></div>
-
+    <div id="listeM"><app-liste-materiel [idClient]=client.id></app-liste-materiel></div>
+    <div id="listeC"><app-liste-contact [idClient]=client.id></app-liste-contact></div>
 </div>
