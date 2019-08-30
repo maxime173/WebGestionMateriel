@@ -30,6 +30,10 @@ export class ClientService {
     );
   }
 
+  createClient(client:Client): Observable<Client> {
+    return this.http.post<Client>(this.baseUrl+'/clients', this.httpOptions).pipe();
+  }
+
   getClientById(idClient: number): Observable<Client> {
     return this.http.get<Client>(this.baseUrl + '/clients/' + idClient, this.httpOptions).pipe();
   }

@@ -18,16 +18,16 @@
                     <label>Adresse 2</label>
                     <input type="text" formControlName="adresse2" class="form-control" />
                 </div>
-                <div class="form-groupV">
+                <div class="form-group col-5">
                 <select formControlName="ville" [(ngModel)]="ville"name="ville" >
                     <option value=""> </option>
                     <option *ngFor="let ville of villes" value="{{ ville.id }}">{{ ville.nom }}</option>
                     <option value="autre">Nouvelle Ville</option>
                     </select>
                 </div>
-                <div class="form-groupV" *ngIf="ville == 'autre'">
+                <div class="form-group col-5" *ngIf="ville == 'autre'">
                  <input type="text" formControlName="codePostal" name="codePostal" placeholder="veuillez renseigner un code postal" />
-                 <input type="text" name="nom"  placeholder="veuillez renseigner une ville" />
+                 <input type="text" name="nomVille"  placeholder="veuillez renseigner une ville" />
                 </div>
             
                 <div class="Ajouter">
