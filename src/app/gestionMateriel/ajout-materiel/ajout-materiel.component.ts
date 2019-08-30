@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TypeMaterielService } from '../type-materiel.service';
 import { TypeMateriel } from '../typeMateriel';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Materiel } from '../materiel';
+import { MaterielService } from '../materiel.service';
 
 @Component({
   selector: 'app-ajout-materiel',
@@ -9,10 +12,15 @@ import { TypeMateriel } from '../typeMateriel';
   providers: [TypeMaterielService]
 })
 export class AjoutMaterielComponent implements OnInit {
-
+  /*@Input()*/ idClient:number = 1;
   typeMateriels: TypeMateriel[] = null;
+  form = new FormGroup({
+    libelle: new FormControl(),
+    numSerie: new FormControl(),
+    type: new FormControl()
+  });
 
-  constructor(private typeMaterielService: TypeMaterielService) { }
+  constructor(private typeMaterielService: TypeMaterielService, private materielService: MaterielService) { }
 
   ngOnInit() {
     this.getAllTypeMateriels();
@@ -20,6 +28,19 @@ export class AjoutMaterielComponent implements OnInit {
 
   getAllTypeMateriels() {
     this.typeMaterielService.getAllTypeMateriels().subscribe(data => this.typeMateriels = data);
+  }
+
+  onSubmit() {
+    let tm: TypeMateriel = new TypeMateriel(this.form.value.type);
+    let m: Materiel = new Materiel(this.form.value.libelle, this.form.value.numSerie, tm);
+    console.log(m);
+    this.materielService.createMateriel(this.idClient, m).subscribe(data => {
+      console.log(data)
+    });
+  }
+
+  onReset() {
+    console.log("reset");
   }
 
 }

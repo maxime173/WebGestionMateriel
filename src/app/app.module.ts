@@ -36,8 +36,8 @@ import { AjoutMaterielComponent } from './gestionMateriel/ajout-materiel/ajout-m
       { path: '', component: ListeClientComponent },
       { path: 'clients', component: ListeClientComponent },
       { path: 'materiels', component: ListeMaterielComponent },
-      { path: 'interfaces', component: ListeInterfaceComponent },
       { path: 'clients/ajout', component: AjoutClientComponent },
+      { path: 'materiels/ajout', component: AjoutMaterielComponent},
       { path: 'clients/:id', component: DetailClientComponent },
       { path: 'materiels/:id', component: DetailMaterielComponent }
     ])
