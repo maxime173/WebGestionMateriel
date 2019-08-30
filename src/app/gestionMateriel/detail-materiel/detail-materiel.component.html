@@ -1,5 +1,19 @@
-<p>detail-materiel works!</p>
-<p>{{ materiel.libelle }}</p>
-<p>{{ materiel.numSerie }}</p>
-<p>{{ materiel.typeMateriel.libelle }}</p>
-<app-liste-interface [idMateriel]=materiel.id></app-liste-interface>
+<div class="modal-header">
+    <h4 class="modal-title">Detail Materiel</h4>
+</div>
+<div class="modal-body">
+    <div id="contenu">
+        <p>{{ materiel.libelle }}</p>
+        <p>{{ materiel.numSerie }}</p>
+        <p>{{ materiel.typeMateriel.libelle }}</p>
+        <app-liste-interface [idMateriel]=materiel.id></app-liste-interface>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default" type="button" ng-click="dismiss()">
+        Cancel
+    </button>
+    <button class="btn btn-primary" type="button" ng-click="successCallback()">
+        OK
+    </button>
+</div>
