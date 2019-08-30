@@ -8,11 +8,9 @@
        <div class="container-fluid">
   <div class="row">
     <div class="col-sm-4" style="background-color:rgba(0, 0, 0, 0.432);">
-      
                 <p><span>Nom materiel : </span>{{ materiel.libelle }}</p>
                 <p><span>N° Serie : </span>{{ materiel.numSerie }}</p>
                 <p><span>Type Materiel : </span>{{ materiel.typeMateriel.libelle }}</p>
-       
     </div>
     <div class="col-sm-8" style="background-color:rgba(0, 0, 0, 0.432);">
          <app-liste-interface [idMateriel]=materiel.id></app-liste-interface>
