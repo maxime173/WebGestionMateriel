@@ -1,21 +1,21 @@
 #detailCl{  
     width:100%;
-}
-#cadre{
-    text-align: center;
     height: 150px;
     background: rgb(255, 128, 8);
 }
-.enfant{
-  background: rgba(0, 0, 0, 0.192);
-  width: 300px;
-  text-align: center;
+#cadre{
+    padding-top:8px;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.212);
+    margin: auto;
+    text-align: center;
 }
 
 #blocks{
 width: 610px;
 margin: auto;
 }
+
 #listeC, #listeM {
     display: inline-flex;
     width: 300px;

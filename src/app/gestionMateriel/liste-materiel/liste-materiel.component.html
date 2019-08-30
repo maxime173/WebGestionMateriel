@@ -1,7 +1,7 @@
  <title>Liste materiel</title>
 <div *ngFor='let materiel of materiels' class="main">
-   
     <p><span class="police"> Nom matériel : {{ materiel.libelle }}</span></p>
     <p><span class="police"> N° serie : {{ materiel.numSerie }}</span></p>
     <p><span class="police"> Type Matériel : {{ materiel.typeMateriel.libelle }}</span></p>
+    <span id="buttons"><button class="button">Détails</button></span>
 </div>
