@@ -1,4 +1,7 @@
 .main {
-    border-bottom: rgb(255, 128, 8) inset;
+    border-bottom: rgb(255, 128, 8) outset;
     margin-left: 20px;
+}
+.police{
+    font-weight: bold;
 }
