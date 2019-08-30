@@ -3,25 +3,28 @@ import { Contact } from './contact';
 import { Materiel } from './materiel';
 
 export class Client {
-    public constructor (
-        public id: number, 
+    public constructor ( 
         public nom: string, 
         public adresse1: string, 
         public adresse2: string, 
-        public ville : Ville,
-        public contact: Array<Contact>,
-        public materiel: Array<Materiel>) {}
+        public ville : Ville) {}
+
+    public id: number;
+    public contacts: Array<Contact>;
+    public materiels: Array<Materiel>;
 
     public static fromJson(json: Object): 
     Client {
-        return new Client(
-            json['id'], 
+        let c: Client = new Client(
             json['nom'],
             json['adresse1'],
             json['adresse2'],
-            json['ville'],
-            json['contacts'],
-            json['materiels']
+            json['ville']            
         );
+        c.id = json['id'];
+        c.contacts = json['contacts'];
+        c.materiels = json['materiels'];
+        return c;
     }
+    
     }
