@@ -12,6 +12,7 @@ import { DetailMaterielComponent } from './gestionMateriel/detail-materiel/detai
 import { DetailClientComponent } from './gestionMateriel/detail-client/detail-client.component';
 import { RouterModule } from '@angular/router';
 import { AjoutClientComponent } from './gestionMateriel/ajout-client/ajout-client.component';
+import { AjoutMaterielComponent } from './gestionMateriel/ajout-materiel/ajout-materiel.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AjoutClientComponent } from './gestionMateriel/ajout-client/ajout-clien
     ListeInterfaceComponent,
     DetailMaterielComponent,
     DetailClientComponent,
-    AjoutClientComponent
+    AjoutClientComponent,
+    AjoutMaterielComponent
   ],
   imports: [
     BrowserModule,
