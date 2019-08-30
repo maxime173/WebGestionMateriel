@@ -31,12 +31,16 @@ export class VilleService {
   constructor(private http: HttpClient) { }
 
   // Retourne tous les contacts
-  getAllVilles(): Observable<Ville[]> {
+  /*getAllVilles(): Observable<Ville[]> {
     return this.http.get<Ville[]>(this.baseUrl+'/villes', this.httpOptions).pipe(
       map(
         (jsonArray: Object[]) => jsonArray.map(jsonItem => Ville.fromJson(jsonItem))
       )
     );
+  }*/
+
+  getAllVilles(): Observable<Ville[]> {
+    return this.http.get<Ville[]>(this.baseUrl + '/villes', this.httpOptions).pipe();
   }
   
 }

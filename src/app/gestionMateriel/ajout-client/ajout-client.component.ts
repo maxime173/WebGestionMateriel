@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { VilleService } from '../ville.service';
 import { Ville } from '../ville';
 import { Router } from '@angular/router';
@@ -16,70 +15,50 @@ import { Client } from '../Client';
   providers: [VilleService, ClientService]
 })
 export class AjoutClientComponent implements OnInit {
-  ajoutForm: FormGroup;
   submitted = false;
   villes : Ville[] = null;
-  body : Client;
+  form = new FormGroup({
+    nom :new FormControl(),
+    adresse1 : new FormControl(),
+    adresse2 : new FormControl(),
+    ville : new FormControl(),
+  })
+
 
   constructor(private router: Router, private villeService: VilleService, private formBuilder: FormBuilder , private http: HttpClient, private clientService: ClientService) { }
 
   ngOnInit() {
-    this.getAllVilles();
-    this.ajoutForm = this.formBuilder.group({
-      nom: ['', Validators.required],
-      adresse1 : [''],
-      adresse2: [''],
-      ville: [''],
-      codePostal : [''],
-      nomVille: [''],
-      
-  }, {
-
-  });
+    this.getAllVilles(); 
   }
-  get f() { return this.ajoutForm.controls; }
+    
+  getAllVilles() {
+    this.villeService.getAllVilles().subscribe(data => {
+      this.villes = data;
+      console.log(data);
+      })
+  }
 
   onSubmit() {
-      this.submitted = true;
-
-      // stop here if form is invalid
-      if (this.ajoutForm.invalid) {
-          return;
-
-          
-      }
-    var body = 
-   {
-       "adresse1": this.ajoutForm.value.adresse1,
-       "adresse2": this.ajoutForm.value.adresse2,
-       "nom":this.ajoutForm.value.nom,
-       "ville": {
-        "codePostal": this.ajoutForm.value.codePostal,
-        //"id": this.ajoutForm.value.ville,
-        "nom": this.ajoutForm.value.nomVille
-      }
-   };
-     // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.ajoutForm.value, null, 4));
-      console.log(this.body);
-     this.clientService.createClient(this.body)
-      .subscribe((response)=>{
-        console.log('repsonse ',response);
-      // display form values on success
-     
-      
-  })
+    let v: Ville = new Ville();
+    if(this.form.value.ville != 0) {
+      v.id = this.form.value.ville;
+    }
+    else {
+      //mettre le nom et code postal
+    }
+    let c: Client = new Client(this.form.value.nom, this.form.value.adresse1, this.form.value.adresse2, v);
+    console.warn(c);
+    alert(c);
+    this.clientService.createClient(c).subscribe(data => {
+      console.log(data);
+    });
+    
+  }
 }
 
 
-  onReset() {
-      this.submitted = false;
-      this.ajoutForm.reset();
-  }
-  getAllVilles() {
-    this.villeService.getAllVilles().subscribe(data => this.villes = data);
-  }
 
   
 
   
-}
+

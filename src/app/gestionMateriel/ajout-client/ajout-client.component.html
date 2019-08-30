@@ -24,7 +24,7 @@
                 <select formControlName="ville" [(ngModel)]="ville"name="ville" >
                     <option value=""> </option>
                     <option *ngFor="let ville of villes" value="{{ ville.id }}">{{ ville.nom }}</option>
-                    <option value="autre">Nouvelle Ville</option>
+                    <option value="0">Nouvelle Ville</option>
                     </select>
                 </div>
                
@@ -34,7 +34,7 @@
                 </div>
             
                 <div class="Ajouter">
-                <button class="btn btn-primary mr-1">Ajouter</button>
+                <button class="btn btn-primary mr-1" type="button" (click)="onSubmit()">Ajouter</button>
                 <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
                 </div>
               </div> 
