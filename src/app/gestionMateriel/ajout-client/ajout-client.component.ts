@@ -22,6 +22,8 @@ export class AjoutClientComponent implements OnInit {
     adresse1 : new FormControl(),
     adresse2 : new FormControl(),
     ville : new FormControl(),
+    codePostal : new FormControl(),
+    nomVille : new FormControl(),
   })
 
 
@@ -44,6 +46,8 @@ export class AjoutClientComponent implements OnInit {
       v.id = this.form.value.ville;
     }
     else {
+      v.codePostal = this.form.value.codePostal;
+      v.nom = this.form.value.nomVille
       //mettre le nom et code postal
     }
     let c: Client = new Client(this.form.value.nom, this.form.value.adresse1, this.form.value.adresse2, v);

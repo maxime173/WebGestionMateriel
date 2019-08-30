@@ -2,7 +2,7 @@
 <div class="card m-3">
     <h5 class="card-header">Ajout d'un client</h5>
     <div class="card-body">
-        <form [formGroup]="ajoutForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="form-row">
                 <div class ="form-group col">
                 <div class="form-group col-5">
@@ -28,9 +28,9 @@
                     </select>
                 </div>
                
-                <div class="form-group col-5" *ngIf="ville == 'autre'"> 
+                <div class="form-group col-5" *ngIf="ville == '0'"> 
                  <input type="text" formControlName="codePostal" name="codePostal" placeholder="veuillez renseigner un code postal" />
-                 <input type="text" name="nomVille"  placeholder="veuillez renseigner une ville" />
+                 <input type="text" formControlName="nomVille" name="nomVille"  placeholder="veuillez renseigner une ville" />
                 </div>
             
                 <div class="Ajouter">
