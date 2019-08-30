@@ -31,4 +31,8 @@ export class MaterielService {
   getMaterielById(idMateriel:number): Observable<Materiel> {
     return this.http.get<Materiel>(this.baseUrl + '/materiels/' + idMateriel, this.httpOptions).pipe();
   }
+
+  createMateriel(idClient:number, materiel:Materiel): Observable<Materiel> {
+    return this.http.post<Materiel>(this.baseUrl + '/clients/' + idClient + '/materiels', materiel, this.httpOptions).pipe();
+  }
 }

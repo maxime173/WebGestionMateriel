@@ -2,25 +2,25 @@
 <div class="card m-3">
     <h5 class="card-header">Ajout d'un client</h5>
     <div class="card-body">
-        <form [formGroup]="ajoutForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="form-row">
                 <div class="form-group col-5">
                     <label>Libellé</label>
-                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" formControlName="libelle" />
                 </div>
                
                 <div class="form-group col-5">
                     <label>Num. série</label>
-                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" formControlName="numSerie" />
                 </div>
                 <div class="form-group col-5">
                     <label>Type Matériel</label>
-                    <select name="typeMateriel" >
-                        <option *ngFor="let type of typeMateriel" value="{{ type.id }}">{{ type.libelle }}</option>
+                    <select name="typeMateriel" formControlName="type" >
+                        <option *ngFor="let type of typeMateriels" value="{{ type.id }}">{{ type.libelle }}</option>
                     </select>
                 </div>
                 <div class="form-group col-5">
-                    <button class="btn btn-primary mr-1">Ajouter</button>
+                    <button class="btn btn-primary mr-1" type="button" (click)="onSubmit()">Ajouter</button>
                     <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
                 </div>
             </div>
