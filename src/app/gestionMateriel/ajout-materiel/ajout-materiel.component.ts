@@ -12,8 +12,11 @@ import { MaterielService } from '../materiel.service';
   providers: [TypeMaterielService]
 })
 export class AjoutMaterielComponent implements OnInit {
-  /*@Input()*/ idClient:number = 1;
+  @Input() idClient:number;
+  @Input() show: boolean;
+
   typeMateriels: TypeMateriel[] = null;
+
   form = new FormGroup({
     libelle: new FormControl(),
     numSerie: new FormControl(),
@@ -35,12 +38,8 @@ export class AjoutMaterielComponent implements OnInit {
     let m: Materiel = new Materiel(this.form.value.libelle, this.form.value.numSerie, tm);
     console.log(m);
     this.materielService.createMateriel(this.idClient, m).subscribe(data => {
-      console.log(data)
+      console.log(data);
     });
-  }
-
-  onReset() {
-    console.log("reset");
   }
 
 }

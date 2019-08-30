@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { MaterielService } from '../materiel.service';
 import { Materiel } from '../materiel';
 import { Router } from '@angular/router';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-liste-materiel',
@@ -12,7 +13,9 @@ import { Router } from '@angular/router';
 export class ListeMaterielComponent implements OnInit {
 
   @Input() idClient:number;
+  @Output() hide: EventEmitter
   materiels : Materiel[] = null;
+  showAjoutMateriel: boolean = false;
   
   constructor(private router: Router, private materielService: MaterielService) { }
 
@@ -26,6 +29,10 @@ export class ListeMaterielComponent implements OnInit {
 
   goToDetail(idMateriel: number) {
     this.router.navigate(['/materiels', idMateriel])
+  }
+
+  displayAjoutMateriel() {
+    this.showAjoutMateriel = true;
   }
 
 }

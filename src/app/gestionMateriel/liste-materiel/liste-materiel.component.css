@@ -2,6 +2,12 @@
     border-bottom: rgb(255, 128, 8) outset;
     margin-left: 20px;
 }
+
+#listeMateriel {
+  max-height: 500px;
+  overflow:scroll;
+}
+
 .police{
     font-weight: bold;
 }
