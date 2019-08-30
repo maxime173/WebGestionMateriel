@@ -4,6 +4,7 @@
     <div class="card-body">
         <form [formGroup]="ajoutForm" (ngSubmit)="onSubmit()">
             <div class="form-row">
+                <div class ="form-group col">
                 <div class="form-group col-5">
                     <label>nom</label>
                     <input type="text" formControlName="nom" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }" />
@@ -18,6 +19,7 @@
                     <label>Adresse 2</label>
                     <input type="text" formControlName="adresse2" class="form-control" />
                 </div>
+                <p>veuillez renseigner une ville</p>
                 <div class="form-group col-5">
                 <select formControlName="ville" [(ngModel)]="ville"name="ville" >
                     <option value=""> </option>
@@ -25,7 +27,8 @@
                     <option value="autre">Nouvelle Ville</option>
                     </select>
                 </div>
-                <div class="form-group col-5" *ngIf="ville == 'autre'">
+               
+                <div class="form-group col-5" *ngIf="ville == 'autre'"> 
                  <input type="text" formControlName="codePostal" name="codePostal" placeholder="veuillez renseigner un code postal" />
                  <input type="text" name="nomVille"  placeholder="veuillez renseigner une ville" />
                 </div>
@@ -34,7 +37,7 @@
                 <button class="btn btn-primary mr-1">Ajouter</button>
                 <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
                 </div>
-               
+              </div> 
             </div>
         </form>
     </div>
