@@ -24,4 +24,8 @@ export class ListeMaterielComponent implements OnInit {
     this.materielService.getMaterielsFromClient(this.idClient).subscribe(data => this.materiels = data);
   }
 
+  goToDetail(idMateriel: number) {
+    this.router.navigate(['/materiels', idMateriel])
+  }
+
 }

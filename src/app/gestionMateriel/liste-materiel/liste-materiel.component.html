@@ -3,5 +3,5 @@
     <p><span class="police"> Nom matériel : {{ materiel.libelle }}</span></p>
     <p><span class="police"> N° serie : {{ materiel.numSerie }}</span></p>
     <p><span class="police"> Type Matériel : {{ materiel.typeMateriel.libelle }}</span></p>
-    <span id="buttons"><button class="button">Détails</button></span>
+    <span id="buttons"><button class="button" (click)="goToDetail(materiel.id)">Détails</button></span>
 </div>

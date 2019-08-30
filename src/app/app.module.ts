@@ -37,10 +37,7 @@ import { AjoutClientComponent } from './gestionMateriel/ajout-client/ajout-clien
       { path: 'interfaces', component: ListeInterfaceComponent },
       { path: 'clients/ajout', component: AjoutClientComponent },
       { path: 'clients/:id', component: DetailClientComponent },
-      { path: 'materiels/:id', component: DetailMaterielComponent },
-      //Pour le développement uniquement, à supprimer après :
-      { path: 'contacts/:id', component: ListeContactComponent },
-      
+      { path: 'materiels/:id', component: DetailMaterielComponent }
     ])
   ],
   providers: [],
