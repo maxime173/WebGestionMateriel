@@ -1,15 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { InterfaceService } from '../interface.service';
+import { Router } from '@angular/router';
+import { Interface } from '../interface';
 
 @Component({
   selector: 'app-liste-interface',
   templateUrl: './liste-interface.component.html',
-  styleUrls: ['./liste-interface.component.css']
+  styleUrls: ['./liste-interface.component.css'],
+  providers: [InterfaceService]
 })
 export class ListeInterfaceComponent implements OnInit {
 
-  constructor() { }
+  @Input() idMateriel:number;
+  interfaces: Interface[] = null;
+
+  constructor(private router: Router, private interfaceService: InterfaceService) { }
 
   ngOnInit() {
+    this.getInterfacesFromMateriel();
+  }
+
+  getInterfacesFromMateriel() {
+    this.interfaceService.getInterfacesFromMateriel(this.idMateriel).subscribe(data => this.interfaces = data);
   }
 
 }
