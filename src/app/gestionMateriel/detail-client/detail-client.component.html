@@ -1,14 +1,27 @@
-<div id="detailCl">
-    <div id="cadre">
+ <div class="container">
+       <div class="modal-header">
+         <h4 class="modal-title">Détail materiel</h4>
+          <button type="button" class="btn btn-info" ng-click="click()">
+           Back
+           </button>
+       </div>
+      <div class="modal-body">
         <p>{{ client.nom }}</p>
         <p>{{ client.adresse1 }}</p>
         <p>{{ client.adresse2 }}</p>
-         <span *ngIf='client.ville != null'>
-            <p>{{ client.ville.codePostal }}</p>
-            <p>{{ client.ville.nom }}</p>
-         </span>
+        <span *ngIf='client.ville != null'></span>
+        <p>{{ client.ville.codePostal }}</p>
+        <p>{{ client.ville.nom }}</p>
     </div>
-<div id="blocks">
-    <div id="listeM"><app-liste-materiel [idClient]=client.id></app-liste-materiel></div>
-    <div id="listeC"><app-liste-contact [idClient]=client.id></app-liste-contact></div>
+       <div class="container-fluid">
+           <div class="row">
+             <div class="col-sm-4" style="background-color:rgba(0, 0, 0, 0.432);">
+             <app-liste-materiel [idClient]=client.id></app-liste-materiel>
+            </div>
+           <div class="col-sm-8" style="background-color:rgba(0, 0, 0, 0.432);">
+           <app-liste-contact [idClient]=client.id></app-liste-contact>
+    </div>
+  </div>
+ </div>
 </div>
+  
