@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TypeMaterielService } from './type-materiel.service';
+import { MaterielService } from '../materiel.service';
 
-describe('TypeMaterielService', () => {
+describe('MaterielService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: TypeMaterielService = TestBed.get(TypeMaterielService);
+    const service: MaterielService = TestBed.get(MaterielService);
     expect(service).toBeTruthy();
   });
 });
