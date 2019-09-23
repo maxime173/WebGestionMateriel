@@ -1,0 +1,43 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Materiel } from '../entite/materiel';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MaterielService {
+  baseUrl = "https://api-gestion-materiel.herokuapp.com/api/v1";
+  httpOptions = {
+    headers : new HttpHeaders({
+      'Access-Control-Allow-Origin':'*',
+      'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+      'Accept':'application/json',
+      'Content-Type': 'application/json'
+    })
+  };
+
+  constructor(private http: HttpClient) { }
+
+  getMaterielsFromClient(idClient:number): Observable<Materiel[]> {
+    return this.http.get<Materiel[]>(this.baseUrl + '/clients/' + idClient + '/materiels', this.httpOptions).pipe();
+  }
+
+  getMaterielByIdFromClient(idClient:number, idMateriel:number): Observable<Materiel> {
+    console.log(this.baseUrl + '/clients/' + idClient + '/materiels/' + idMateriel);
+    return this.http.get<Materiel>(this.baseUrl + '/clients/' + idClient + '/materiels/' + idMateriel, this.httpOptions).pipe();
+  }
+
+  getMaterielById(idMateriel:number): Observable<Materiel> {
+    return this.http.get<Materiel>(this.baseUrl + '/materiels/' + idMateriel, this.httpOptions).pipe();
+  }
+
+  getUrlQrCode(idClient:number, idMateriel:number): string {
+    return this.baseUrl + "/clients/" + idClient + "/materiels/" + idMateriel + "/qrcode";
+  }
+
+  createMateriel(idClient:number, materiel:Materiel): Observable<Materiel> {
+    return this.http.post<Materiel>(this.baseUrl + '/clients/' + idClient + '/materiels', materiel, this.httpOptions).pipe();
+  }
+}

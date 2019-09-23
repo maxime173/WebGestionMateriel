@@ -1,0 +1,11 @@
+<div *ngFor='let interface of interfaces'>
+        <p>Nom : {{ interface.nom }}</p>
+        <p>Mac : {{ interface.mac }}</p>
+        <p>Type : {{ interface.typeif.libelle }}</p>
+    <div *ngIf='interface.adresse != null'>
+        <p>ipv4 : {{ interface.adresse.ipv4 }}</p>
+        <p>ipv6 : {{ interface.adresse.ipv6 }}</p>
+        <p>Masque : {{ interface.adresse.masque }}</p>
+        <p>Affectation : {{ interface.adresse.typeAffectation.libelle }}</p>
+    </div>
+</div>
