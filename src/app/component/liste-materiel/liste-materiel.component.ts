@@ -4,8 +4,8 @@ import { Materiel } from '../../entite/materiel';
 import { Router } from '@angular/router';
 import { EventEmitter } from 'events';
 
-var $ = require('jquery');
-var dt = require('datatables.net');
+/*var $ = require('jquery');
+var dt = require('datatables.net');*/
 
 @Component({
   selector: 'app-liste-materiel',

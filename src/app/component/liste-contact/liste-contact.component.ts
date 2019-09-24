@@ -3,8 +3,8 @@ import { Contact } from '../../entite/contact';
 import { ContactService } from '../../service/contact-service';
 import { Router } from '@angular/router';
 
-var $ = require('jquery');
-var dt = require('datatables.net');
+/*var $ = require('jquery');
+var dt = require('datatables.net');*/
 
 @Component({
   selector: 'app-liste-contact',
