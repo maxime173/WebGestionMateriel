@@ -1,5 +1,6 @@
 import { TypeMateriel } from './typeMateriel';
 import { Interface } from './interface';
+import { Incident } from './incident';
 
 export class Materiel {
     public constructor (
@@ -8,6 +9,7 @@ export class Materiel {
         public typeMateriel: TypeMateriel) {}
 
     id: number;
-    interf: Array<Interface>;
+    interfaces: Array<Interface>;
+    incidents: Array<Incident>;
 
 }

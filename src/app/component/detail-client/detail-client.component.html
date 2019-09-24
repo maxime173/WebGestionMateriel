@@ -1,28 +1,28 @@
- <div class="container">
-       <div class="modal-header">
-         <h4 class="modal-title">Détail materiel</h4>
-          <button type="button" class="btn btn-info" ng-click="click()">
-           Back
-           </button>
-       </div>
-      <div class="modal-body">
-        <p>{{ client.nom }}</p>
-        <p>{{ client.adresse1 }}</p>
-        <p>{{ client.adresse2 }}</p>
-        <span *ngIf='client.ville != null'>
-          <p>{{ client.ville.codePostal }}</p>
-          <p>{{ client.ville.nom }}</p>
-        </span>
-    </div>
-       <div class="container-fluid">
-           <div class="row">
-             <div class="col-sm-4" style="background-color:rgba(0, 0, 0, 0.432);">
-             <app-liste-materiel [idClient]=client.id></app-liste-materiel>
-            </div>
-           <div class="col-sm-8" style="background-color:rgba(0, 0, 0, 0.432);">
-           <app-liste-contact [idClient]=client.id></app-liste-contact>
+<h1 class="w3-content">Détail client {{ client.nom }}</h1>
+<div class="w3-content w3-row">
+  <h2>Adresse</h2>
+  <div class="w3-third">
+    <div>
+      <p>{{ client.adresse1 }}</p>
+      <span *ngIf='client.adresse2 != null'>
+          <p>{{ client.adresse2 }}</p>
+      </span>
+      
+      <span *ngIf='client.ville != null'>
+        <p>{{ client.ville.codePostal }}</p>
+        <p>{{ client.ville.nom }}</p>
+      </span>
     </div>
   </div>
- </div>
+
+  <div class="w3-twothird w3-center">
+    <span>Map</span>
+  </div>
 </div>
-  
+
+<div class="w3-content w3-row">
+    <h2>Matériels</h2>
+    <app-liste-materiel [idClient]=client.id></app-liste-materiel>
+    <h2>Contacts</h2>
+    <app-liste-contact [idClient]=client.id></app-liste-contact>
+</div>

@@ -1,11 +1,31 @@
-<p>liste-client works!</p>
-<div *ngFor='let client of clients' (click)="goToDetail(client.id)" class="blockClient">
-    
-        <p> {{client.nom}}</p>
-        <p>{{client.adresse1}}  {{client.adresse2}}</p>
-        <div *ngIf='client.ville != null'>
-                <p>{{ client.ville.codePostal }}</p>
-                <p>{{ client.ville.nom }}</p>
-        </div>
-    
-</div>
+<table id="listClient" class="dataTable">
+        <thead>
+                <tr>
+                <th>Nom</th>
+                <th>Nb Matériel</th>
+                <th>Nb Contact</th>
+                <th>Adresse</th>
+                <th>Action</th>
+                </tr>
+        </thead>
+        <tr *ngFor='let client of clients'>
+                <td>{{ client.nom }}</td>
+                <td>{{ client.materiels.length }}</td>
+                <td>{{ client.contacts.length }}</td>
+                <td>
+                        {{ client.adresse1 }}
+                        <span *ngIf='client.adresse2 != null'>
+                                {{ client.adresse2 }}
+                        </span>
+                        <span *ngIf='client.ville != null'>
+                                {{ client.ville.codePostal }}
+                                {{ client.ville.nom }}
+                        </span>
+                </td>
+                <td class="w3-opacity w3-large">
+                        <i class="fa fa-search w3-hover-opacity" (click)="goToDetail(client.id)"></i>
+                        <i class="fa fa-pencil w3-hover-opacity"></i>
+                        <i class="fa fa-close w3-hover-opacity"></i>
+                </td>
+        </tr>
+</table>

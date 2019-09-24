@@ -12,6 +12,4 @@ export class Client {
     public id: number;
     public contacts: Array<Contact>;
     public materiels: Array<Materiel>;
-
-    
 }

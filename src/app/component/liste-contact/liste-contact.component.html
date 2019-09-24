@@ -1,11 +1,23 @@
-
-<div class="main" *ngFor='let contact of contacts' >
-   <p> <span class="police"> Nom : </span> {{ contact.personne.nom }} 
-    <span class="police"> Prénom : </span>{{ contact.personne.prenom }}</p>
-    <p> <span class="police">Fonction :</span>{{ contact.fonction.libelle}}</p>
-    <p> <span class="police">Téléphone : </span> {{ contact.personne.telephone }}</p>
-    <p> <span class="police">E-mail : </span> {{ contact.personne.email }}</p>
-    <span id="buttons"><button class="button">Modifier</button>
-    <button class="button" (click)="deleteContact(contact.id)">Suprimer</button></span>
-    <div>...</div>
-</div>
+<table id="listContact" class="dataTable">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Fonction</th>
+            <th>Téléphone</th>
+            <th>E-mail</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tr *ngFor='let contact of contacts'>
+        <td>{{ contact.personne.nom }}</td>
+        <td>{{ contact.personne.prenom }}</td>
+        <td>{{ contact.fonction.libelle }}</td>
+        <td>{{ contact.personne.telephone }}</td>
+        <td>{{ contact.personne.email }}</td>
+        <td class="w3-opacity w3-large">
+            <i class="fa fa-pencil w3-hover-opacity"></i>
+            <i class="fa fa-close w3-hover-opacity" (click)="deleteContact(contact.id)"></i>
+        </td>
+    </tr>
+</table>

@@ -1,31 +1,19 @@
-       <div class="container">
-       <div class="modal-header">
-          <h4 class="modal-title">Détail materiel</h4>
-                <button type="button" class="btn btn-info" ng-click="click()">
-                        Back
-               </button>
-       </div>
-       <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-4" style="background-color:rgba(0, 0, 0, 0.432);">
-        <p><span>Nom materiel : </span>{{ materiel.libelle }}</p>
-        <p><span>N° Serie : </span>{{ materiel.numSerie }}</p>
-        <p><span>Type Materiel : </span>{{ materiel.typeMateriel.libelle }}</p>
-        <img src="{{ urlImg }}"/>
-    </div>
-    <div class="col-sm-8" style="background-color:rgba(0, 0, 0, 0.432);">
-         <app-liste-interface [idMateriel]=materiel.id></app-liste-interface>
-    </div>
-  </div>
+<h1 class="w3-content">Détail matériel {{ materiel.libelle }}</h1>
+<div class="w3-content w3-row">
+        <h2>Caractéristiques</h2>
+        <div class="w3-third" id="caracMateriel">
+                <p><label>Nom : </label>{{ materiel.libelle }}</p>
+                <p><label>N° série : </label>{{ materiel.numSerie }}</p>
+                <p><label>Type : </label>{{ materiel.typeMateriel.libelle }}</p>
+        </div>
+
+        <div class="w3-twothird w3-center">
+                <img src="{{ urlImg }}"/>
+        </div>
 </div>
- 
- 
-       
-       <div class="modal-footer">
-               <button type="button" class="btn btn-info" ng-click="click()">
-                       Press Me Hard
-               </button>
-       </div>
-       </div>
 
-
+<div class="w3-content w3-row">
+        <h2>Interfaces</h2>
+        <app-liste-interface [idMateriel]=materiel.id></app-liste-interface>
+        <h2>Incidents</h2>
+</div>

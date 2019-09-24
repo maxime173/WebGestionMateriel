@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DataTablesModule } from 'angular-datatables';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListeClientComponent } from './component/liste-client/liste-client.component';
@@ -34,6 +35,7 @@ import { ListeIncidentComponent } from './component/liste-incident/liste-inciden
     AppRoutingModule,
     BrowserModule,
     ReactiveFormsModule,
+    DataTablesModule,
     RouterModule.forRoot([
       { path: '', component: ListeClientComponent },
       { path: 'clients', component: ListeClientComponent },

@@ -1,11 +1,27 @@
- <title>Liste materiel</title>
-<section id="listeMateriel">
-    <div *ngFor='let materiel of materiels' class="main">
-        <p><span class="police"> Nom matériel : {{ materiel.libelle }}</span></p>
-        <p><span class="police"> N° serie : {{ materiel.numSerie }}</span></p>
-        <p><span class="police"> Type Matériel : {{ materiel.typeMateriel.libelle }}</span></p>
-        <span id="buttons"><button class="button" (click)="goToDetail(materiel.id)">Détails</button></span>
-    </div>
-</section>
-<button (click)="displayAjoutMateriel()">Ajouter</button>
+<table id="listMateriel" class="dataTable">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>N° serie</th>
+            <th>Type</th>
+            <th>Nb interfaces</th>
+            <th>Nb incidents</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tr *ngFor='let materiel of materiels'>
+        <td>{{ materiel.libelle }}</td>
+        <td>{{ materiel.numSerie }}</td>
+        <td>{{ materiel.typeMateriel.libelle }}</td>
+        <td>{{ materiel.interfaces.length }}</td>
+        <td>{{ materiel.incidents.length }}</td>
+        <td class="w3-opacity w3-large">
+            <i class="fa fa-search w3-hover-opacity" (click)="goToDetail(materiel.id)"></i>
+            <i class="fa fa-pencil w3-hover-opacity"></i>
+            <i class="fa fa-close w3-hover-opacity"></i>
+        </td>
+    </tr>
+</table>
+
+<button (click)="displayAjoutMateriel()" class="w3-button w3-blue">Ajouter</button>
 <app-ajout-materiel [idClient]=idClient [show]=showAjoutMateriel></app-ajout-materiel>

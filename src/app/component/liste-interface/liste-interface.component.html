@@ -1,11 +1,27 @@
-<div *ngFor='let interface of interfaces'>
-        <p>Nom : {{ interface.nom }}</p>
-        <p>Mac : {{ interface.mac }}</p>
-        <p>Type : {{ interface.typeif.libelle }}</p>
-    <div *ngIf='interface.adresse != null'>
-        <p>ipv4 : {{ interface.adresse.ipv4 }}</p>
-        <p>ipv6 : {{ interface.adresse.ipv6 }}</p>
-        <p>Masque : {{ interface.adresse.masque }}</p>
-        <p>Affectation : {{ interface.adresse.typeAffectation.libelle }}</p>
-    </div>
-</div>
+<table id="listInterface" class="dataTable">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Mac</th>
+            <th>Type</th>
+            <th>IpV4</th>
+            <th>IpV6</th>
+            <th>Masque</th>
+            <th>Affectation</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tr *ngFor='let interface of interfaces'>
+        <td>{{ interface.nom }}</td>
+        <td>{{ interface.mac }}</td>
+        <td>{{ interface.typeif.libelle }}</td>
+        <td>{{ interface.adresse == null ? "-" : interface.adresse.ipv4 }}</td>
+        <td>{{ interface.adresse == null ? "-" : interface.adresse.ipv6 }}</td>
+        <td>{{ interface.adresse == null ? "-" : interface.adresse.masque }}</td>
+        <td>{{ interface.adresse == null ? "-" : interface.adresse.typeAffectation.libelle }}</td>
+        <td class="w3-opacity w3-large">
+            <i class="fa fa-pencil w3-hover-opacity"></i>
+            <i class="fa fa-close w3-hover-opacity" (click)="deleteContact(contact.id)"></i>
+        </td>
+    </tr>
+</table>

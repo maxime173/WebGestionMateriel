@@ -4,6 +4,9 @@ import { Materiel } from '../../entite/materiel';
 import { Router } from '@angular/router';
 import { EventEmitter } from 'events';
 
+var $ = require('jquery');
+var dt = require('datatables.net');
+
 @Component({
   selector: 'app-liste-materiel',
   templateUrl: './liste-materiel.component.html',
@@ -21,6 +24,7 @@ export class ListeMaterielComponent implements OnInit {
 
   ngOnInit() {
     this.getMaterielsFromClient();
+    //$('#listMateriel').DataTable();
   }
 
   getMaterielsFromClient() {

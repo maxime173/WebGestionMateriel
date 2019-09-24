@@ -1,10 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
-body
-{
-  width: 100%;
-  margin: auto;
-  padding: 1px;
-  font-family: 'Trebuchet MS', Arial, sans-serif;
-  color: white;
-  background: rgb(112, 111, 111);
+body,h1,h2,h3,h4,h5,h6 {
+    font-family: "Lato", sans-serif
+}
+
+.w3-bar,h1,button {
+    font-family: "Montserrat", sans-serif
+}
+
+table.dataTable td {
+    text-align: center;
+}
+
+table.dataTable td i {
+    margin: 0px 2px;
+}
+
+table.dataTable tbody tr {
+    background-color: inherit !important;
 }
