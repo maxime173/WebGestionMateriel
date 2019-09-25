@@ -25,4 +25,12 @@
     <app-liste-materiel [idClient]=client.id></app-liste-materiel>
     <h2>Contacts</h2>
     <app-liste-contact [idClient]=client.id></app-liste-contact>
+    <h2>Export incidents</h2>
+    <form [formGroup]="formExportIncident">
+        <label>Date début</label>
+        <input type="date" name="debut" placeholder="yyyy-MM-dd" formControlName="debut" />
+        <label>Date fin</label>
+        <input type="date" name="fin" placeholder="yyyy-MM-dd" formControlName="fin" />
+        <button (click)="onExportIncident()">Exporter</button>
+    </form>
 </div>

@@ -1,1 +1,25 @@
-<p>liste-incident works!</p>
+<table id="listIncidents" class="dataTable">
+    <thead>
+        <tr>
+            <th>Libelle</th>
+            <th>Symptome</th>
+            <th>Résolution</th>
+            <th>Date Création</th>
+            <th>Date Clôture</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tr *ngFor='let incident of incidents'>
+        <td>{{ incident.libelle }}</td>
+        <td>{{ incident.symptome }}</td>
+        <td>{{ incident.resolution }}</td>
+        <td>{{ incident.dateCreation }}</td>
+        <td>{{ incident.dateCloture }}</td>
+        <td>{{ incident.status.libelle }}</td>
+        <td class="w3-opacity w3-large">
+            <i class="fa fa-pencil w3-hover-opacity"></i>
+            <i  *ngIf='incident.status.id != 2' class="fa fa-ban w3-hover-opacity" title="Clore"></i>
+        </td>
+    </tr>
+</table>
