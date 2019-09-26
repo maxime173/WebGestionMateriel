@@ -23,8 +23,6 @@ export class DetailMaterielComponent implements OnInit {
       let id = +params['id'];
       this.materielService.getMaterielByIdFromClient(this.idClient, id).subscribe(data => {
         this.materiel = data;
-        console.log("test");
-        console.log(data);
         this.urlImg =  this.materielService.getUrlQrCode(this.idClient, id);
       });
     });

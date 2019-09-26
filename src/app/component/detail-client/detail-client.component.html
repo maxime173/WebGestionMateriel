@@ -27,10 +27,14 @@
     <app-liste-contact [idClient]=client.id></app-liste-contact>
     <h2>Export incidents</h2>
     <form [formGroup]="formExportIncident">
-        <label>Date début</label>
-        <input type="date" name="debut" placeholder="yyyy-MM-dd" formControlName="debut" />
-        <label>Date fin</label>
-        <input type="date" name="fin" placeholder="yyyy-MM-dd" formControlName="fin" />
-        <button (click)="onExportIncident()">Exporter</button>
+      <div class="w3-half" id="divDateDebut">
+        <label for="debut">Date début</label>
+        <input type="date" name="debut" placeholder="yyyy-MM-dd" formControlName="debut" class="w3-input w3-border" />
+      </div>
+      <div class="w3-half" id="divDateFin">
+        <label for="fin">Date fin</label>
+        <input type="date" name="fin" placeholder="yyyy-MM-dd" formControlName="fin" class="w3-input w3-border" />
+      </div>
+      <button (click)="onExportIncident()" class="w3-button w3-blue">Exporter</button>
     </form>
 </div>

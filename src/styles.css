@@ -17,3 +17,12 @@ table.dataTable td i {
 table.dataTable tbody tr {
     background-color: inherit !important;
 }
+
+button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.w3-modal {
+    display: block !important; /* Pour gérer l'affichage des modales avec la directive ngif plutôt qu'en css*/
+}

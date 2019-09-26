@@ -14,12 +14,40 @@
         <td>{{ incident.libelle }}</td>
         <td>{{ incident.symptome }}</td>
         <td>{{ incident.resolution }}</td>
-        <td>{{ incident.dateCreation }}</td>
-        <td>{{ incident.dateCloture }}</td>
+        <td>{{ incident.dateCreation | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ incident.dateCloture | date: 'dd/MM/yyyy' }}</td>
         <td>{{ incident.status.libelle }}</td>
         <td class="w3-opacity w3-large">
-            <i class="fa fa-pencil w3-hover-opacity"></i>
-            <i  *ngIf='incident.status.id != 2' class="fa fa-ban w3-hover-opacity" title="Clore"></i>
+            <span *ngIf='incident.status.id != 2'>
+                <i class="fa fa-pencil w3-hover-opacity" title="Modifier" (click)="displayEditIncident(incident.id)"></i>
+                <i class="fa fa-ban w3-hover-opacity" title="Clore" (click)="cloreTicket(incident.id)"></i>
+            </span>
         </td>
     </tr>
 </table>
+
+<div class="w3-container">
+    <button (click)="displayAjoutIncident()" class="w3-button w3-blue">Créer</button>
+    
+    <div id="modale-incident" class="w3-modal" *ngIf="showModaleIncident">
+        <div class="w3-modal-content">
+        <header class="w3-container w3-teal"> 
+            <span (click)="showModaleIncident=false" class="w3-button w3-display-topright">&times;</span>
+            <h2>{{ isModalCreation ? "Créer" : "Modifier"}} incident</h2>
+        </header>
+        <div class="w3-container">
+            <form [formGroup]="formIncident">
+                <label for="libelle">Libellé</label>
+                <input type="text" formControlName="libelle" class="w3-input w3-border" placeholder="Titre de l'incident"/>
+                <label for="symptome">Symptôme</label>
+                <textarea name="symptome" formControlName="symptome" class="w3-input w3-border" placeholder="Expliquer votre problème..."></textarea>
+                <div *ngIf="!isModalCreation">
+                    <label for="resolution">Résolution</label>
+                    <textarea name="resolution" placeholder="Indiquer ce qui a été fait pour le résoudre" formControlName="resolution" class="w3-input w3-border" ></textarea>
+                    <input type="hidden" name="id" formControlName="id"/>
+                </div>
+                <button class="w3-teal w3-button" (click)="onSubmitIncident()">{{ isModalCreation ? "Créer" : "Modifier" }}</button>
+            </form>
+        </div>
+    </div>
+</div>

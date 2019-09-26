@@ -35,10 +35,7 @@ export class DetailClientComponent implements OnInit {
     let dateFin: Date = this.formExportIncident.value.fin;
     this.incidentService.exportIncidentFromClient(this.client.id, dateDebut, dateFin).subscribe(data => {
 
-      console.log("reçu");
       var newBlob = new Blob([data], { type: "application/pdf" });
-      
-      console.log(newBlob.size);
 
       // Fix pour IE qui ne gère pas la suite
       if (window.navigator && window.navigator.msSaveOrOpenBlob) {
