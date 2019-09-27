@@ -33,7 +33,7 @@
         <div class="w3-modal-content">
         <header class="w3-container w3-teal"> 
             <span (click)="showModaleIncident=false" class="w3-button w3-display-topright">&times;</span>
-            <h2>{{ isModalCreation ? "Créer" : "Modifier"}} incident</h2>
+            <h2>{{ isModalCreationIncident ? "Créer" : "Modifier"}} incident</h2>
         </header>
         <div class="w3-container">
             <form [formGroup]="formIncident">
@@ -41,12 +41,12 @@
                 <input type="text" formControlName="libelle" class="w3-input w3-border" placeholder="Titre de l'incident"/>
                 <label for="symptome">Symptôme</label>
                 <textarea name="symptome" formControlName="symptome" class="w3-input w3-border" placeholder="Expliquer votre problème..."></textarea>
-                <div *ngIf="!isModalCreation">
+                <div *ngIf="!isModalCreationIncident">
                     <label for="resolution">Résolution</label>
                     <textarea name="resolution" placeholder="Indiquer ce qui a été fait pour le résoudre" formControlName="resolution" class="w3-input w3-border" ></textarea>
                     <input type="hidden" name="id" formControlName="id"/>
                 </div>
-                <button class="w3-teal w3-button" (click)="onSubmitIncident()">{{ isModalCreation ? "Créer" : "Modifier" }}</button>
+                <button class="w3-teal w3-button" (click)="onSubmitIncident()">{{ isModalCreationIncident ? "Créer" : "Modifier" }}</button>
             </form>
         </div>
     </div>

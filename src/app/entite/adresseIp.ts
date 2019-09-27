@@ -1,11 +1,10 @@
 import { TypeAffectation } from './typeAffectation';
 
 export class AdresseIp {
-    public constructor (
-        public id: number, 
-        public ipv4: string, 
-        public ipv6: string, 
+    public constructor (public ipv4: string, 
         public masque: string, 
-        public typeAffectation : TypeAffectation  ) {}
+        public typeAffectation : TypeAffectation) {}
 
+    public ipv6: string;
+    public id: number;
 }

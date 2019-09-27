@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { TypeMateriel } from '../entite/typeMateriel';
 import { Observable } from 'rxjs/internal/Observable';
 import { GenericService } from './generic.service';

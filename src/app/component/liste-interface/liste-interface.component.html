@@ -20,8 +20,43 @@
         <td>{{ interface.adresse == null ? "-" : interface.adresse.masque }}</td>
         <td>{{ interface.adresse == null ? "-" : interface.adresse.typeAffectation.libelle }}</td>
         <td class="w3-opacity w3-large">
-            <i class="fa fa-pencil w3-hover-opacity"></i>
-            <i class="fa fa-close w3-hover-opacity" (click)="deleteContact(contact.id)"></i>
+            <i class="fa fa-pencil w3-hover-opacity" (click)="displayEditInterface(interface.id)"></i>
+            <i class="fa fa-close w3-hover-opacity" (click)="deleteInterface(interface.id, interface.nom)"></i>
         </td>
     </tr>
 </table>
+
+<div class="w3-container">
+    <button (click)="displayAjoutInterface()" class="w3-button w3-blue">Créer</button>
+    
+    <div class="w3-modal" *ngIf="showModaleInterface">
+        <div class="w3-modal-content">
+        <header class="w3-container w3-teal"> 
+            <span (click)="showModaleInterface=false" class="w3-button w3-display-topright">&times;</span>
+            <h2>{{ isModalCreationInterface ? "Créer" : "Modifier"}} interface</h2>
+        </header>
+        <div class="w3-container">
+            <form [formGroup]="formInterface">
+                <label for="nom">Nom</label>
+                <input type="text" formControlName="nom" class="w3-input w3-border" placeholder="Nom de l'interface"/>
+                <label for="mac">Mac</label>
+                <input type="text" formControlName="mac" class="w3-input w3-border" placeholder="00:00:00:00:00"/>
+                <label for="idTypeIf">Type d'interface</label>
+                <select name="idTypeIf" formControlName="idTypeIf" class="w3-select">
+                    <option *ngFor="let type of typeInterfaces" value="{{ type.id }}">{{ type.libelle }}</option>
+                </select>
+                <label for="ipv4">IpV4</label>
+                <input type="text" formControlName="ipv4" class="w3-input w3-border" placeholder="192.18.254.1"/>
+                <label for="ipv6">IpV6</label>
+                <input type="text" formControlName="ipv6" class="w3-input w3-border" placeholder="2001:0db8:0000:85a3:0000:0000:ac1f:8001"/>
+                <label for="masque">Masque</label>
+                <input type="text" formControlName="masque" class="w3-input w3-border" placeholder="255.255.255.0"/>
+                <label for="idTypeAff">Type d'affectation</label>
+                <select name="idTypeAff" formControlName="idTypeAff" class="w3-select">
+                    <option *ngFor="let type of typeAffectations" value="{{ type.id }}">{{ type.libelle }}</option>
+                </select>
+                <button class="w3-teal w3-button" (click)="onSubmitInterface()">{{ isModalCreationInterface ? "Créer" : "Modifier" }}</button>
+            </form>
+        </div>
+    </div>
+</div>

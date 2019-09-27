@@ -26,3 +26,7 @@ button {
 .w3-modal {
     display: block !important; /* Pour gérer l'affichage des modales avec la directive ngif plutôt qu'en css*/
 }
+
+.w3-select {
+    border: 1px solid #ccc !important;
+}

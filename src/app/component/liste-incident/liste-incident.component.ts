@@ -16,7 +16,7 @@ export class ListeIncidentComponent implements OnInit {
   incidents: Incident[] = null;
 
   showModaleIncident: boolean = false;
-  isModalCreation: boolean = true;
+  isModalCreationIncident: boolean = true;
 
   formIncident: FormGroup = new FormGroup({
     libelle: new FormControl(),
@@ -42,13 +42,13 @@ export class ListeIncidentComponent implements OnInit {
   /***** MODALE *****/
 
   displayAjoutIncident() {
-    this.isModalCreation = true;
+    this.isModalCreationIncident = true;
     this.formIncident.reset();
     this.showModaleIncident = true;
   }
 
   displayEditIncident(idIncident: number) {
-    this.isModalCreation = false;
+    this.isModalCreationIncident = false;
     this.formIncident.reset();
     this.incidentService.getIncidentByIdFromMateriel(this.idMateriel, idIncident).subscribe(i => {
       this.formIncident.patchValue({
@@ -66,7 +66,7 @@ export class ListeIncidentComponent implements OnInit {
     i.libelle = this.formIncident.value.libelle;
     i.symptome = this.formIncident.value.symptome;
 
-    if(this.isModalCreation) {
+    if(this.isModalCreationIncident) {
       this.incidentService.createIncident(this.idMateriel, i).subscribe(data => {
         this.getIncidentsFromMateriel();
         this.showModaleIncident = false;
