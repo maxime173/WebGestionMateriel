@@ -17,10 +17,10 @@ export class AjoutMaterielComponent implements OnInit {
 
   typeMateriels: TypeMateriel[] = null;
 
-  form = new FormGroup({
-    libelle: new FormControl(),
+  formMateriel = new FormGroup({
+    nom: new FormControl(),
     numSerie: new FormControl(),
-    type: new FormControl()
+    idTypeMateriel: new FormControl()
   });
 
   constructor(private typeMaterielService: TypeMaterielService, private materielService: MaterielService) { }

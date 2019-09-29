@@ -24,4 +24,12 @@ export class MaterielService extends GenericService {
   createMateriel(idClient:number, materiel:Materiel): Observable<Materiel> {
     return this.http.post<Materiel>(this.baseUrl + '/clients/' + idClient + '/materiels', materiel, this.httpOptions).pipe();
   }
+
+  editMateriel(idClient: number, m: Materiel) : Observable<Materiel> {
+    return this.http.put<Materiel>(this.baseUrl + '/clients/' + idClient + '/materiels/' + m.id, m, this.httpOptions);
+  }
+
+  deleteMateriel(idClient: number, idMateriel: number): Observable<Materiel> {
+    return this.http.delete<Materiel>(this.baseUrl + '/clients/' + idClient + '/materiels/' + idMateriel, this.httpOptions);
+  }
 }

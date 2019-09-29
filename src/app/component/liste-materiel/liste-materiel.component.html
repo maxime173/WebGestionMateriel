@@ -17,11 +17,33 @@
         <td>{{ materiel.incidents.length }}</td>
         <td class="w3-opacity w3-large">
             <i class="fa fa-search w3-hover-opacity" (click)="goToDetail(materiel.id)"></i>
-            <i class="fa fa-pencil w3-hover-opacity"></i>
-            <i class="fa fa-close w3-hover-opacity"></i>
+            <i class="fa fa-pencil w3-hover-opacity" (click)="displayEditMateriel(materiel.id)"></i>
+            <i class="fa fa-close w3-hover-opacity" (click)="deleteMateriel(materiel.id, materiel.libelle)"></i>
         </td>
     </tr>
 </table>
 
-<button (click)="displayAjoutMateriel()" class="w3-button w3-blue">Ajouter</button>
-<app-ajout-materiel [idClient]=idClient [show]=showAjoutMateriel></app-ajout-materiel>
+<div class="w3-container">
+    <button (click)="displayAjoutMateriel()" class="w3-button w3-blue">Créer</button>
+    
+    <div class="w3-modal" *ngIf="showModaleMateriel">
+        <div class="w3-modal-content">
+        <header class="w3-container w3-teal"> 
+            <span (click)="showModaleMateriel=false" class="w3-button w3-display-topright">&times;</span>
+            <h2>{{ isModalCreationMateriel ? "Créer" : "Modifier"}} matériel</h2>
+        </header>
+        <div class="w3-container">
+            <form [formGroup]="formMateriel">
+                <label for="nom">Nom</label>
+                <input type="text" formControlName="nom" class="w3-input w3-border" placeholder="Nom du matériel"/>
+                <label for="numSerie">numSerie</label>
+                <input type="text" formControlName="numSerie" class="w3-input w3-border" placeholder="0123456789"/>
+                <label for="idTypeMateriel">Type de matériel</label>
+                <select name="idTypeMateriel" formControlName="idTypeMateriel" class="w3-select">
+                    <option *ngFor="let type of typeMateriels" value="{{ type.id }}">{{ type.libelle }}</option>
+                </select>
+                <button class="w3-teal w3-button" (click)="onSubmitMateriel()">{{ isModalCreationMateriel ? "Créer" : "Modifier" }}</button>
+            </form>
+        </div>
+    </div>
+</div>
