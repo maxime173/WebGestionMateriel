@@ -65,6 +65,9 @@ export class ListeClientComponent implements OnInit {
   displayAjoutClient() {
     this.isModalCreationClient = true;
     this.formClient.reset();
+    this.formClient.patchValue({
+      idVille: 0
+    });
     this.showModaleClient = true;
   }
 
