@@ -16,8 +16,37 @@
         <td>{{ contact.personne.telephone }}</td>
         <td>{{ contact.personne.email }}</td>
         <td class="w3-opacity w3-large">
-            <i class="fa fa-pencil w3-hover-opacity"></i>
-            <i class="fa fa-close w3-hover-opacity" (click)="deleteContact(contact.id)"></i>
+            <i class="fa fa-pencil w3-hover-opacity" (click)="displayEditContact(contact.id)"></i>
+            <i class="fa fa-close w3-hover-opacity" (click)="deleteContact(contact.id, contact.personne.prenom + ' ' + contact.personne.nom + ' (' + contact.fonction.libelle + ')')"></i>
         </td>
     </tr>
 </table>
+
+<div class="w3-container">
+    <button (click)="displayAjoutContact()" class="w3-button w3-blue">Créer</button>
+    
+    <div class="w3-modal" *ngIf="showModaleContact">
+        <div class="w3-modal-content">
+        <header class="w3-container w3-teal"> 
+            <span (click)="showModaleContact=false" class="w3-button w3-display-topright">&times;</span>
+            <h2>{{ isModalCreationContact ? "Créer" : "Modifier"}} contact</h2>
+        </header>
+        <div class="w3-container">
+            <form [formGroup]="formContact">
+                <label for="prenom">Prénom</label>
+                <input type="text" formControlName="prenom" class="w3-input w3-border" placeholder="Prénom"/>
+                <label for="nom">Nom</label>
+                <input type="text" formControlName="nom" class="w3-input w3-border" placeholder="Nom"/>
+                <label for="telephone">Téléphone</label>
+                <input type="text" formControlName="telephone" class="w3-input w3-border" placeholder="01.23.45.67.89"/>
+                <label for="email">Email</label>
+                <input type="email" formControlName="email" class="w3-input w3-border" placeholder="contact@netgest.fr"/>
+                <label for="idFonction">Fonction</label>
+                <select formControlName="idFonction" class="w3-select">
+                    <option *ngFor="let f of fonctions" value="{{ f.id }}">{{ f.libelle }}</option>
+                </select>
+                <button class="w3-teal w3-button" (click)="onSubmitContact()">{{ isModalCreationContact ? "Créer" : "Modifier" }}</button>
+            </form>
+        </div>
+    </div>
+</div>

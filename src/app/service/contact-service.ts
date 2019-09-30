@@ -12,11 +12,19 @@ export class ContactService extends GenericService {
     return this.http.get<Contact[]>(this.baseUrl + '/clients/' + idClient + '/contacts', this.httpOptions);
   }
 
-  getContactByIdFromClient(idClient:number, id:number): Observable<Contact[]> {
-    return this.http.get<Contact[]>(this.baseUrl + '/clients/' + idClient + '/contacts/' + id, this.httpOptions);
+  getContactByIdFromClient(idClient:number, id:number): Observable<Contact> {
+    return this.http.get<Contact>(this.baseUrl + '/clients/' + idClient + '/contacts/' + id, this.httpOptions);
   }
 
-  deleteContactById(idClient:number, id:number): Observable<Contact> {
+  createContact(idClient: number, c: Contact) : Observable<Contact> {
+    return this.http.post<Contact>(this.baseUrl + '/clients/' + idClient + '/contacts', c, this.httpOptions);
+  }
+
+  editContact(idClient: number, c: Contact) : Observable<Contact> {
+    return this.http.put<Contact>(this.baseUrl + '/clients/' + idClient + '/contacts/' + c.id, c, this.httpOptions);
+  }
+
+  deleteContact(idClient:number, id:number): Observable<Contact> {
     return this.http.delete<Contact>(this.baseUrl + '/clients/' + idClient + '/contacts/' + id, this.httpOptions);
   } 
   
