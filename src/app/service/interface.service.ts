@@ -9,11 +9,11 @@ import { GenericService } from './generic.service';
 export class InterfaceService extends GenericService {
   
   getInterfacesFromMateriel(idMateriel:number): Observable<Interface[]> {
-    return this.http.get<Interface[]>(this.baseUrl + '/materiels/' + idMateriel + '/interfaces', this.httpOptions).pipe();
+    return this.http.get<Interface[]>(this.baseUrl + '/materiels/' + idMateriel + '/interfaces', this.httpOptions);
   }
 
   getInterfaceByIdFromMateriel(idMateriel:number, idInterface: number): Observable<Interface> {
-    return this.http.get<Interface>(this.baseUrl + '/materiels/' + idMateriel + '/interfaces/' + idInterface, this.httpOptions).pipe();
+    return this.http.get<Interface>(this.baseUrl + '/materiels/' + idMateriel + '/interfaces/' + idInterface, this.httpOptions);
   }
 
   createInterface(idMateriel: number, i: Interface) : Observable<Interface> {

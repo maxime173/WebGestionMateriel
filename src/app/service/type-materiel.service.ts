@@ -9,6 +9,6 @@ import { GenericService } from './generic.service';
 export class TypeMaterielService extends GenericService {
 
   getAllTypeMateriels(): Observable<TypeMateriel[]> {
-    return this.http.get<TypeMateriel[]>(this.baseUrl + '/typemateriels', this.httpOptions).pipe();
+    return this.http.get<TypeMateriel[]>(this.baseUrl + '/typemateriels', this.httpOptions);
   }
 }

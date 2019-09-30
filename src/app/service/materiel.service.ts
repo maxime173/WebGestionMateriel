@@ -9,12 +9,12 @@ import { GenericService } from './generic.service';
 export class MaterielService extends GenericService {
 
   getMaterielsFromClient(idClient:number): Observable<Materiel[]> {
-    return this.http.get<Materiel[]>(this.baseUrl + '/clients/' + idClient + '/materiels', this.httpOptions).pipe();
+    return this.http.get<Materiel[]>(this.baseUrl + '/clients/' + idClient + '/materiels', this.httpOptions);
   }
 
   getMaterielByIdFromClient(idClient:number, idMateriel:number): Observable<Materiel> {
     console.log(this.baseUrl + '/clients/' + idClient + '/materiels/' + idMateriel);
-    return this.http.get<Materiel>(this.baseUrl + '/clients/' + idClient + '/materiels/' + idMateriel, this.httpOptions).pipe();
+    return this.http.get<Materiel>(this.baseUrl + '/clients/' + idClient + '/materiels/' + idMateriel, this.httpOptions);
   }
 
   getUrlQrCode(idClient:number, idMateriel:number): string {
@@ -22,7 +22,7 @@ export class MaterielService extends GenericService {
   }
 
   createMateriel(idClient:number, materiel:Materiel): Observable<Materiel> {
-    return this.http.post<Materiel>(this.baseUrl + '/clients/' + idClient + '/materiels', materiel, this.httpOptions).pipe();
+    return this.http.post<Materiel>(this.baseUrl + '/clients/' + idClient + '/materiels', materiel, this.httpOptions);
   }
 
   editMateriel(idClient: number, m: Materiel) : Observable<Materiel> {

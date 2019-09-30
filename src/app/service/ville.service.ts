@@ -9,7 +9,7 @@ import { GenericService } from './generic.service';
 export class VilleService extends GenericService {
   
   getAllVilles(): Observable<Ville[]> {
-    return this.http.get<Ville[]>(this.baseUrl + '/villes', this.httpOptions).pipe();
+    return this.http.get<Ville[]>(this.baseUrl + '/villes', this.httpOptions);
   }
   
 }

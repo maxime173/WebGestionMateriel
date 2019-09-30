@@ -9,11 +9,11 @@ import { GenericService } from './generic.service';
 export class IncidentService extends GenericService {
 
   getIncidentByIdFromMateriel(idMateriel:number, idIncident: number): Observable<Incident> {
-    return this.http.get<Incident>(this.baseUrl + '/materiels/' + idMateriel + '/incidents/' + idIncident, this.httpOptions).pipe();
+    return this.http.get<Incident>(this.baseUrl + '/materiels/' + idMateriel + '/incidents/' + idIncident, this.httpOptions);
   }
 
   getIncidentsFromMateriel(idMateriel:number): Observable<Incident[]> {
-    return this.http.get<Incident[]>(this.baseUrl + '/materiels/' + idMateriel + '/incidents', this.httpOptions).pipe();
+    return this.http.get<Incident[]>(this.baseUrl + '/materiels/' + idMateriel + '/incidents', this.httpOptions);
   }
 
   createIncident(idMateriel: number, incident: Incident) : Observable<Incident> {

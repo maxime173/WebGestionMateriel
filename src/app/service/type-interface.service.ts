@@ -8,6 +8,6 @@ import { GenericService } from './generic.service';
 })
 export class TypeInterfaceService extends GenericService {
   getAllTypeInterfaces(): Observable<TypeInterface[]> {
-    return this.http.get<TypeInterface[]>(this.baseUrl + '/typesinterfaces', this.httpOptions).pipe();
+    return this.http.get<TypeInterface[]>(this.baseUrl + '/typesinterfaces', this.httpOptions);
   }
 }

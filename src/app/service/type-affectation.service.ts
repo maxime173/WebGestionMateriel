@@ -9,6 +9,6 @@ import { GenericService } from './generic.service';
 export class TypeAffectationService extends GenericService {
 
   getAllTypeAffectations(): Observable<TypeAffectation[]> {
-    return this.http.get<TypeAffectation[]>(this.baseUrl + '/typeaffectations', this.httpOptions).pipe();
+    return this.http.get<TypeAffectation[]>(this.baseUrl + '/typeaffectations', this.httpOptions);
   }
 }
