@@ -8,17 +8,24 @@ import { GenericService } from './generic.service';
 })
 export class ClientService extends GenericService {
   
-  // Retourne tous les contacts
+  getClientById(idClient: number): Observable<Client> {
+    return this.http.get<Client>(this.baseUrl + '/clients/' + idClient, this.httpOptions);
+  }
+
   getAllClients(): Observable<Client[]> {
-    return this.http.get<Client[]>(this.baseUrl+'/clients', this.httpOptions).pipe();
+    return this.http.get<Client[]>(this.baseUrl+'/clients', this.httpOptions);
   }
 
   createClient(client:Client): Observable<Client> {
-    return this.http.post<Client>(this.baseUrl+'/clients', client, this.httpOptions).pipe();
+    return this.http.post<Client>(this.baseUrl+'/clients', client, this.httpOptions);
   }
 
-  getClientById(idClient: number): Observable<Client> {
-    return this.http.get<Client>(this.baseUrl + '/clients/' + idClient, this.httpOptions).pipe();
+  editClient(c: Client) : Observable<Client> {
+    return this.http.put<Client>(this.baseUrl + '/clients/' + c.id, c, this.httpOptions);
+  }
+
+  deleteClient(idClient: number): Observable<Client> {
+    return this.http.delete<Client>(this.baseUrl + '/clients/' + idClient, this.httpOptions);
   }
   
 }

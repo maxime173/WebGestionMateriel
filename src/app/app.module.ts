@@ -12,8 +12,6 @@ import { ListeInterfaceComponent } from './component/liste-interface/liste-inter
 import { DetailMaterielComponent } from './component/detail-materiel/detail-materiel.component';
 import { DetailClientComponent } from './component/detail-client/detail-client.component';
 import { RouterModule } from '@angular/router';
-import { AjoutClientComponent } from './component/ajout-client/ajout-client.component';
-import { AjoutMaterielComponent } from './component/ajout-materiel/ajout-materiel.component';
 import { ListeIncidentComponent } from './component/liste-incident/liste-incident.component';
 
 @NgModule({
@@ -25,8 +23,6 @@ import { ListeIncidentComponent } from './component/liste-incident/liste-inciden
     ListeInterfaceComponent,
     DetailMaterielComponent,
     DetailClientComponent,
-    AjoutClientComponent,
-    AjoutMaterielComponent,
     ListeIncidentComponent
   ],
   imports: [
@@ -39,9 +35,6 @@ import { ListeIncidentComponent } from './component/liste-incident/liste-inciden
     RouterModule.forRoot([
       { path: '', component: ListeClientComponent },
       { path: 'clients', component: ListeClientComponent },
-      { path: 'materiels', component: ListeMaterielComponent },
-      { path: 'clients/ajout', component: AjoutClientComponent },
-      { path: 'clients/:id/ajoutmateriel', component: AjoutMaterielComponent },
       { path: 'clients/:id', component: DetailClientComponent },
       { path: 'clients/:idClient/materiels/:id', component: DetailMaterielComponent }
     ])
